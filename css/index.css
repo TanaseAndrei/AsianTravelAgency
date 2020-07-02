@@ -1,0 +1,388 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.header{
+    background: rgb(255, 105, 180, 0.6);
+    padding-bottom: 150px;
+}
+
+.navbar{
+    padding-top: 20px !important;
+}
+
+.nav-item{
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+.nav-link{
+    color: #fff !important;
+    font-size: 20px !important;
+    padding: 0 0 5px 0 !important;
+    display: unset !important;
+}
+
+.navbar-brand img{
+    width: 100px;
+}
+
+.fa-bars{
+    color: #fff;
+    font-size: 40px !important;
+}
+
+.navbar-toggler{
+    border: 0 !important;
+    outline: 0 !important;
+    padding: initial !important;
+}
+
+.active-home{
+    border-bottom: 2px solid white;
+}
+
+.nav-link:hover{
+    border-bottom: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.banner{
+    margin-top: 8%;
+    color: #fff;
+}
+
+.banner h1{
+    margin: 80px 0 50px;
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.banner img{
+    max-height: auto;
+}
+
+.banner a{
+    padding: 12px;
+    width: 150px;
+    display: inline-block;
+    background: rgba(255, 105, 180, 0.1);
+    text-decoration: none !important; 
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.banner a:hover{
+    color: #fff;
+}
+
+.express-btn{
+    background: #fff !important;
+    color: #000 !important;
+    margin-right: 5px;
+}
+
+.express-btn2{
+    background: rgb(255, 105, 180, 0.6);
+}
+
+.city-picture{
+    margin-top: 90px;
+    animation: mover 3s infinite alternate;
+}
+
+@keyframes mover{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-20px);
+    }
+}
+
+.main{
+    margin: 75px 0;
+}
+
+.title{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.subtitle{
+    text-align: center;
+    margin-bottom: 70px;
+    font-size: 15px;
+}
+
+.offer-box{
+    padding: 0 35px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+}
+
+.offer-box img{
+    display: block;
+    width: 100px;
+    margin-top: 60px;
+    margin-bottom: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 35px;
+}
+
+.offer-box h6{
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.offer-box p{
+    font-size: 14px;
+    color: #808080;
+}
+
+.fa-arrow-right{
+    font-size: 22px !important;
+    margin-top: 30px;
+    margin-bottom: 35px;
+    cursor: pointer;
+}
+
+.offer-box:hover,.active-offer{
+    background: rgb(255, 105, 180, 0.6);
+    transition: 0.5s;
+    color: #fff !important;
+    box-shadow: 0 15px 15px 2px rgba(213,213,213,0.5);
+}
+
+.offer-box:hover p{
+    color: #fff !important;
+    transition: 0.5s;
+}
+
+.active-offer p{
+    color: #fff !important;
+}
+
+/*******LOCATIONS*******/
+
+.japan,.south-korea,.china{
+    margin: 150px 0;
+}
+
+.japan img,.south-korea img,.china img{
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.japan h2,.south-korea h2,.china h2{
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.japan p,.south-korea p,.china p{
+    margin-top: 25px;
+    margin-bottom: 50px;
+    color: #808080;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.japan a,.south-korea a,.china a{
+    margin-left: auto;
+    margin-right: auto;
+    width: 170px;
+    padding: 15px 10px;
+    display: block;
+    background: rgb(255, 105, 180, 0.6);
+    text-decoration: none !important;
+    color: #fff !important;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 9px 9px 1px rgba(204,204,204,0.5);
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/*REVIEW*/
+
+.review{
+    margin: 100px 0;
+}
+
+.carousel-item img{
+    height: 150px;
+    width: 200px;
+    margin-top: 15px;
+    border-radius: 50%;
+}
+
+.carousel-item{
+    text-align: center;
+    height: 500px;
+}
+
+.carousel-caption{
+    position: relative;
+    z-index: -1 !important;
+    box-shadow: 0 0 15px 1px rgba(166,163,223,0.5);
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.carousel-caption h5{
+    margin-top: 55px;
+    font-weight: bold;
+    color: #000 !important;
+}
+
+.carousel-caption small{
+    margin-top: 10px;
+    margin-bottom: 50px;
+    display: block;
+    color: #000 !important;
+}
+
+.carousel-caption p{
+    text-align: center;
+    padding: 0 50px;
+    font-size: 15px;
+    color: #808080 !important;
+}
+
+.carousel-indicators li{
+    background-color: rgba(166,163,223,0.5) !important;
+}
+
+@media only screen and (max-width: 800px){
+    .carousel-item{
+        height: 600px;
+        position: absolute;
+    }
+    .carousel-caption{
+        position: absolute;
+       margin: 0 10px 50px 10px;
+       left: 0;
+       right: 0; 
+    }
+}
+
+/*FOOTER*/
+footer{
+    background: rgb(255, 105, 180, 0.6);
+    padding-top: 5px;
+}
+
+.container{
+    padding: 40px 0;
+}
+
+footer p{
+    color: #fff;
+    line-height: 18px;
+}
+
+footer h2{
+    color: #fff;
+    font-size: 18px;
+}
+
+.segment-one{
+    color: #fff;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}
+
+.segment-one h2{
+    font-size: 25px;
+}
+
+.segment-one ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.segment-two h2{
+    font-size: 25px;
+}
+
+.segment-one ul li{
+    border-bottom: 1px solid white;
+    line-height: 40px;
+}
+
+.segment-one ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.segment-two h2:before{
+    content: '|';
+    color: red;
+    padding-right: 4px;
+}
+
+.segment-two a i{
+    font-size: 20px;
+    justify-content: space-evenly;
+}
+
+.segment-three h2{
+    font-size: 25px;
+}
+
+.segment-three h2:before{
+    content: '|';
+    color: red;
+    padding-right: 4px;
+}
+
+.segment-three form input[type=submit]{
+    border: none;
+    padding: 3px 15px;
+    background: white;
+}
+
+.footer-bottom-text{
+    color: black;
+    background: white;
+    text-align: center;
+    line-height: 75px;
+}
+
+/*RESPONSIVE CSS*/
+@media only screen and (max-width: 350px){
+    .segment-one{
+        margin: 20px 0;
+    }
+    .segment-two{
+        margin: 20px 0;
+    }
+    .segment-three{
+        margin: 20px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
