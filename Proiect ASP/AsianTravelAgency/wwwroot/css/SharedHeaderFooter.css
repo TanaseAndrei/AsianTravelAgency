@@ -1,0 +1,130 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/*Header*/
+.header {
+    background: rgba(255, 105, 180, 0.6);
+    padding-bottom: 150px;
+}
+
+.navbar {
+    padding-top: 20px !important;
+}
+
+.nav-item {
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-size: 20px !important;
+    padding: 0 0 5px 0 !important;
+    display: unset !important;
+}
+
+.navbar-brand img {
+    width: 100px;
+}
+
+/*Footer*/
+footer {
+    background: rgba(255, 105, 180, 0.6);
+    padding-top: 5px;
+}
+
+.container {
+    padding: 40px 0;
+}
+
+footer p {
+    color: #fff;
+    line-height: 18px;
+}
+
+footer h2 {
+    color: #fff;
+    font-size: 18px;
+}
+
+.segment-one {
+    color: #fff;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}
+
+    .segment-one h2 {
+        font-size: 25px;
+    }
+
+    .segment-one ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+.segment-two h2 {
+    font-size: 25px;
+}
+
+.segment-one ul li {
+    border-bottom: 1px solid white;
+    line-height: 40px;
+}
+
+    .segment-one ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+.segment-two h2:before {
+    content: '|';
+    color: red;
+    padding-right: 4px;
+}
+
+.segment-two a i {
+    font-size: 20px;
+    justify-content: space-evenly;
+}
+
+.segment-three h2 {
+    font-size: 25px;
+}
+
+    .segment-three h2:before {
+        content: '|';
+        color: red;
+        padding-right: 4px;
+    }
+
+.segment-three form input[type=submit] {
+    border: none;
+    padding: 3px 15px;
+    background: white;
+}
+
+.footer-bottom-text {
+    color: black;
+    background: white;
+    text-align: center;
+    line-height: 75px;
+}
+
+/*RESPONSIVE CSS*/
+@media only screen and (max-width: 350px) {
+    .segment-one {
+        margin: 20px 0;
+    }
+
+    .segment-two {
+        margin: 20px 0;
+    }
+
+    .segment-three {
+        margin: 20px 0;
+    }
+}

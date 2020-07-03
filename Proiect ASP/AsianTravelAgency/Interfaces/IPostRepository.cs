@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsianTravelAgency.Interfaces
 {
-    interface IPostRepository 
+    public interface IPostRepository : IRepository<Post>
     {
         Post GetPost(int id);
     }

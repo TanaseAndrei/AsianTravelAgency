@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsianTravelAgency.Interfaces
 {
-    interface IUserRepository
+    public interface IUserRepository : IRepository<User>
     {
         User GetUser(int id);
     }

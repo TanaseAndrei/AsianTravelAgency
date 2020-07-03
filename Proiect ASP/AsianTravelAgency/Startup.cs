@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AsianTravelAgency.Interfaces;
+using AsianTravelAgency.Repositories;
+using AsianTravelAgency.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,10 +28,24 @@ namespace AsianTravelAgency
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=TestEntityFrameworkDb;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<AsianTravelAgencyContext>
                 (options => options.UseSqlServer(connection));
+
+            //add the services, a service is a dependent class
+            //the repositories are services too
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPricesRepository, PricesRepository>();
+            services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<IPicturesRepository, PicturesRepository>();
+            services.AddScoped<IFAQRepository, FAQRepository>();
+            services.AddScoped<IAboutUsPostRepository, AboutUsPostRepository>();
+
+            //add the services
+            services.AddScoped<PostService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

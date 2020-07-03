@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsianTravelAgency.Interfaces
 {
-    interface IAboutUsPostRepository<AboutUsPost>
+    public interface IAboutUsPostRepository : IRepository<AboutUsPost>
     {
         AboutUsPost GetPost(int id);
     }

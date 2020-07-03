@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsianTravelAgency.Interfaces
 {
-    interface IPicturesRepository<Pictures> : IRepository<Pictures>
+    public interface IPicturesRepository : IRepository<Pictures>
     {
         Pictures GetPicture(int id);
     }

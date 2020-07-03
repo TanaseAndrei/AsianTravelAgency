@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsianTravelAgency.Interfaces
 {
-    interface IPricesRepository
+    public interface IPricesRepository : IRepository<Prices>
     {
         Prices GetPrices(int id);
     }

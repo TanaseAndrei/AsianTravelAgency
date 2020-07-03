@@ -1,8 +1,141 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model AsianTravelAgency.Models.ViewModels.PostViewModel.DisplayAllPostViewModel
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<head>
+    <link type="text/css" rel="stylesheet" href="~/css/index.css" />
+</head>
+
+<div class="container">
+    <div class="row banner">
+        <div class="col-md-6">
+            <h1>Have you wanted your entire life to visit the amazing world of Asia?</h1>
+            <P>Now you can! See our offers for unforgettable moments!</P>
+            <a href="pictures.html" class="express-btn">SEE PICTURES</a>
+            <a href="#review" class="express-btn2">SEE REVIEWS</a>
+        </div>
+        <div class="col-md-6 city-picture">
+            <img src="~/images/pngfuel.com.png" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!--SPEECH-->
+<div class="main">
+    <div class="container">
+        <h2 class="title">The lowest prices</h2>
+        <p class="subtitle">We have a large amount of offers<br>to make everyone happy</p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="offer-box">
+                    <img src="~/images/Dimitri Miroliubov.png">
+                    <h6>Low prices</h6>
+                    <p>
+                        Cutting corners?<br> With us, you don't! Based on this idea, you will save money for your
+                        other dreams and maybe... who knows?
+                    </p>
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="offer-box active-offer">
+                    <img src="~/images/Eucalyp.png">
+                    <h6>Happy customers</h6>
+                    <p>
+                        Give someone the benefit of the doubt, you're good with us and we'll arrange your perfect
+                        journey.
+                    </p>
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="offer-box">
+                    <img src="~/images/Freepik.png">
+                    <h6>Reviews</h6>
+                    <p>
+                        We don't pull someone's leg, we are serious in order to make you happy. If you didn't like
+                        the destination, you will get 50% discount to the next one!
+                    </p>
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--LOCATIONS-->
+<form asp-action="Add">
+    <button type="button" class="btn btn-outline-secondary spacing filter">+</button>
+</form>
+@if (Model.Posts.Count() == 0)
+{
+    <div colspan="4">
+        No info
+    </div>
+}
+else
+{
+    @foreach (var DisplayPostViewModel in Model.Posts)
+    {
+        <div class="japan">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="~/images/@DisplayPostViewModel.ImageName" />
+                    </div>
+                    <div class="col-md-6">
+                        <h2>
+                            @Html.DisplayFor(item => DisplayPostViewModel.Title)
+                        </h2>
+                        <p>
+                            @Html.DisplayFor(item => DisplayPostViewModel.Question)
+                        </p>
+                        <a asp-controller="Prices" asp-action="Index">See our offers!</a>
+                    </div>
+                    <span asp-action="Delete" asp-route-id="@DisplayPostViewModel.Id">Delete</span>
+                    <span asp-action="Edit" asp-route-id="@DisplayPostViewModel.Id">Edit</span>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!--REVIEW SECTION-->
+<div class="review" id="review">
+    <div class="container">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel-caption">
+                        <img src="~/images/person1-female.png" alt="First slide">
+                        <h5>Hannah Nelson</h5>
+                        <small>United States</small>
+                        <p>"My experience was awesome, the team from ASIAXPRESS are professionals!"</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-caption">
+                        <img src="~/images/person2-male.png" alt="Second slide">
+                        <h5>Tim Savage</h5>
+                        <small>Norway</small>
+                        <p>"Perfect honey moon! Couldn't do that without ASIAXPRESS"</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-caption">
+                        <img src="~/images/person3-male.png" alt="Third slide">
+                        <h5>Tomy Lee</h5>
+                        <small>England</small>
+                        <p>"My dream came true and i visited Japan"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

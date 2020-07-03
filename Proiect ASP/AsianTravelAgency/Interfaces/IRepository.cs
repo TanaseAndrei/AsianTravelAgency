@@ -7,9 +7,9 @@ namespace AsianTravelAgency.Interfaces
 {
     public interface IRepository<T>
     {
-        public T Add(T itemToAdd);
-        public IEnumerable<T> GetAll();
-        public T Update(T itemToUpdate);
-        public bool Delete(T itemToDelete);
+        T Add(T itemToAdd);
+        IEnumerable<T> GetAll();
+        T Update(T itemToUpdate);
+        bool Delete(T itemToDelete);
     }
 }

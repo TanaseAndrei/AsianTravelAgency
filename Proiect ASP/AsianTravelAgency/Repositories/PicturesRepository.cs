@@ -11,7 +11,7 @@ namespace AsianTravelAgency.Repositories
     {
         public PicturesRepository(AsianTravelAgencyContext _context) : base(_context) { }
 
-        public Pictures GetPictures(int id)
+        public Pictures GetPicture(int id)
         {
             return _context.PictureSet.Where(p => p.Id == id).SingleOrDefault();
         }

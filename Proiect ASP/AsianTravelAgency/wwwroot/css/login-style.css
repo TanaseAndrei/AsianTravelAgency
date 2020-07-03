@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body{
+    background-image: linear-gradient(to right, rgb(255,120,120), rgba(255, 105, 180, 0.6));
+    margin-top: 150px !important;
+}
+
+.register-left{
+    text-align: center;
+    color: #fff;
+    padding: 30px;
+}
+
+.register-left p{
+    padding: 20px 20px 0;
+}
+
+.register-left .btn-primary{
+    border-radius: 1.5rem;
+    border: none;
+    width: 120px;
+    background: #f8f8f8;
+    font-weight: 600;
+    color: #555;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.register-left .btn-primary:hover{
+    background: pink;
+}
+
+.register-left img{
+    margin-top: 60px;
+    margin-bottom: 18px;
+    width: 120px;
+    animation: mover 2s infinite alternate;
+}
+
+@keyframes mover{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-20px);
+    }
+}
+
+.register-right{
+    border: none;
+    background: #f8f8f8;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.register-right h2{
+    text-align: center;
+    margin-bottom: 10px;
+    color: #555;
+    text-transform: uppercase;
+}
+
+.register-form{
+    padding: 30px;
+}
+
+.register-right .btn-primary {
+    float: center;
+    border-radius: 1.5rem;
+    border: none;
+    width: 120px;
+    background: #ff9800;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.register-right .btn-primary:hover {
+    background: rgb(255,120,120);
+}
+
+.spacing{
+    margin: 20px 0;
+}
+
+.anchor{
+    display: block;
+}
+
+@media only screen and (max-width: 844px){
+    .register-right{
+        margin: 50px 0;
+    }
+}
+
+

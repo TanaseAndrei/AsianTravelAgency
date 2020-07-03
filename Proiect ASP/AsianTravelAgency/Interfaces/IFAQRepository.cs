@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsianTravelAgency.Interfaces
 {
-    interface IFAQRepository<FAQ> : IRepository<FAQ>
+    public interface IFAQRepository : IRepository<FAQ>
     {
         FAQ GetFAQ(int id);
     }
