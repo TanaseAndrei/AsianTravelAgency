@@ -2,42 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/SharedHeaderFooter.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img src="/images/icons8-sakura-96.png"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false">
-                <i class="fa fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto text-right">
-                    <li class="nav-item">
-                        <a class="nav-link active-home" href="index.html">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">LOGIN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pictures.html">PICTURES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="prices.html">PRICES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">ABOUT US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mailto:stonixandrei@yahoo.com" target="_blank"
-                           rel="noopener noreferrer">CONTACT US</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <header class="header">
+        <div class="container container-override">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#"><img src="~/images/icons8-sakura-96.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mr-auto ml-auto text-right">
+                        <li class="nav-item">
+                            <a class="nav-link active-home" href="index.html">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">LOGIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pictures.html">PICTURES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="prices.html">PRICES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">ABOUT US</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mailto:stonixandrei@yahoo.com" target="_blank"
+                               rel="noopener noreferrer">CONTACT US</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <div class="container">
@@ -78,9 +86,12 @@
         </div>
         <p class="footer-bottom-text">All rights reserved by &copy;Insert name here</p>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/check_login_input.js"></script>
+    <script src="~/js/check_register_input.js"></script>
+    <script src="~/js/license_agreement_change_submit.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     @RenderSection("Styles", required: false)
 </body>
 </html>

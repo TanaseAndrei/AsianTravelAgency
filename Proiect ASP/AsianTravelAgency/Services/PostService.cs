@@ -17,7 +17,7 @@ namespace AsianTravelAgency.Services
             this._repository = _repository;
         }
 
-        public void AddPost(AddPostViewModel ItemToAdd)
+        public void AddPost(Post ItemToAdd)
         {
             _repository.Add(new Post()
             {

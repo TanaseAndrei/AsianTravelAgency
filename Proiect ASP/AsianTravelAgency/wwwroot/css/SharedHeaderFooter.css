@@ -4,10 +4,14 @@
     font-family: 'Roboto Mono', monospace;
 }
 
+.container-override{
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
 /*Header*/
 .header {
     background: rgba(255, 105, 180, 0.6);
-    padding-bottom: 150px;
 }
 
 .navbar {
@@ -28,6 +32,27 @@
 
 .navbar-brand img {
     width: 100px;
+}
+
+
+.fa-bars {
+    color: #fff;
+    font-size: 40px !important;
+}
+
+.navbar-toggler {
+    border: 0 !important;
+    outline: 0 !important;
+    padding: initial !important;
+}
+
+.active-home {
+    border-bottom: 2px solid white;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid #fff;
+    transition: 0.3s;
 }
 
 /*Footer*/
@@ -127,4 +152,5 @@ footer h2 {
     .segment-three {
         margin: 20px 0;
     }
+
 }

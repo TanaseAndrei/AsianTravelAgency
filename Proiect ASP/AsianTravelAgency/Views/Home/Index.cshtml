@@ -3,11 +3,7 @@
     ViewData["Title"] = "Home";
 }
 
-<head>
-    <link type="text/css" rel="stylesheet" href="~/css/index.css" />
-</head>
-
-<div class="container">
+<div class="container container-banner">
     <div class="row banner">
         <div class="col-md-6">
             <h1>Have you wanted your entire life to visit the amazing world of Asia?</h1>
@@ -65,13 +61,15 @@
 </div>
 
 <!--LOCATIONS-->
-<form asp-action="Add">
-    <button type="button" class="btn btn-outline-secondary spacing filter">+</button>
-</form>
+
+<a asp-action="AddPost">
+    <input type="button" value="+" class="btn btn-outline-secondary spacing filter"/>
+</a>
+
 @if (Model.Posts.Count() == 0)
 {
-    <div colspan="4">
-        No info
+    <div colspan="10">
+        <p>No info</p>
     </div>
 }
 else
@@ -93,8 +91,8 @@ else
                         </p>
                         <a asp-controller="Prices" asp-action="Index">See our offers!</a>
                     </div>
-                    <span asp-action="Delete" asp-route-id="@DisplayPostViewModel.Id">Delete</span>
-                    <span asp-action="Edit" asp-route-id="@DisplayPostViewModel.Id">Edit</span>
+                    <a asp-action="Delete" asp-route-id="@DisplayPostViewModel.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@DisplayPostViewModel.Id">Edit</a>
                 </div>
             </div>
         </div>

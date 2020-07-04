@@ -9,6 +9,8 @@ using AsianTravelAgency.Models;
 using AsianTravelAgency.Interfaces;
 using AsianTravelAgency.Services;
 using AsianTravelAgency.Models.ViewModels.PostViewModel;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace AsianTravelAgency.Controllers
 {
@@ -16,11 +18,13 @@ namespace AsianTravelAgency.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly PostService _service;
+        private readonly IWebHostEnvironment _webEnvironment;
 
-        public HomeController(ILogger<HomeController> logger, PostService _service)
+        public HomeController(ILogger<HomeController> logger, PostService _service, IWebHostEnvironment _webEnvironment)
         {
             _logger = logger;
             this._service = _service;
+            this._webEnvironment = _webEnvironment;
         }
 
         //functie care intoarce view cu pagina principala si toate posturile
@@ -42,6 +46,46 @@ namespace AsianTravelAgency.Controllers
         }
 
         //functie care intoarce un view pentru adaugat anunturi
+       public IActionResult AddPost()
+        {
+            return View();
+        }
+
+        //functie care primeste datele dintr-un form si adauga un post
+        [HttpPost]
+        public IActionResult AddPost([FromForm] AddPostViewModel PostToAdd)
+        {
+            if (ModelState.IsValid)
+            {
+                string uniqueFileName = UploadedFile(PostToAdd);
+                Post NewPost = new Post()
+                {
+                    Title = PostToAdd.Title,
+                    Question = PostToAdd.Question,
+                    ImageName = PostToAdd.Question
+                };
+                _service.AddPost(NewPost);
+                return Redirect(Url.Action("Index", "Home"));
+            }
+            return BadRequest();
+        }
+
+        private string UploadedFile(AddPostViewModel PostToAdd)
+        {
+            string uniqueFileName = null;
+
+            if (PostToAdd.ImageName != null)
+            {
+                string uploadsFolder = Path.Combine(_webEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + PostToAdd.ImageName.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    PostToAdd.ImageName.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
         
         //functie care intoarce un view pentru stergerea unui anunt
 
