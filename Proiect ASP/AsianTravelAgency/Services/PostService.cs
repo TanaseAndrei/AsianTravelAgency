@@ -53,5 +53,18 @@ namespace AsianTravelAgency.Services
             return List;
         }
 
+        public DisplayPostViewModel GetPost(int id)
+        {
+            var Post = _repository.GetPost(id);
+            DisplayPostViewModel PostToReturn = new DisplayPostViewModel()
+            {
+                Id = Post.Id,
+                Title = Post.Title,
+                Question = Post.Question,
+                ImageName = Post.ImageName
+            };
+            return PostToReturn;
+        }
+
     }
 }

@@ -1,83 +1,67 @@
-﻿@model IEnumerable<AsianTravelAgency.Models.Prices>
+﻿@model AsianTravelAgency.Models.ViewModels.PricesViewModel.DisplayAllPriceViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Prices";
 }
 
-<h1>Index</h1>
+<div class="container container-banner">
+    <div class="row banner">
+        <div class="col-md-6">
+            <h2>No money, no problem!</h2>
+            <p>
+                We will find the right place for your for the right money. You will accomplish your dream and
+                for sure you will want more!
+                If you dream to go in a place that do not belongs in our offer, do not hesitate to contact us
+                and we will find you
+                a good offer in the shortest time possible. We care about your wallet.
+            </p>
+            <a href="pictures.html" class="express-btn">SEE PICTURES</a>
+            <a href="#review" class="express-btn2">SEE REVIEWS</a>
+        </div>
+        <div class="col-md-6 city-picture">
+            <img src="~/images/Freepik-save.png" class="img-fluid floating-image">
+        </div>
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Destination)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OnePersonPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TwoPersonsPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ThreePersonsPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SendingWay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TicketType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Guiding)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LeavingFrom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TripInfo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Destination)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OnePersonPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TwoPersonsPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ThreePersonsPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SendingWay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TicketType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Guiding)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LeavingFrom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TripInfo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+<!--Prices-->
+
+<a asp-action="AddPrice">
+    <input type="button" value="+" class="btn btn-outline-secondary spacing filter" />
+</a>
+
+@if(Model.Prices.Count() == 0)
+{
+    <div class="container">
+        <div class="row">
+            <span>No prices</span>
+        </div>
+    </div>
 }
-    </tbody>
-</table>
+else
+{
+    @foreach(var Price in Model.Prices)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="pricing-box text-center">
+                        <h5>@Html.DisplayFor(item => Price.Destination)</h5>
+                        <p class="price"><sup>€</sup>@Html.DisplayFor(item => Price.OnePersonPrice)<sub>/ 1 person</sub></p>
+                        <p class="price"><sup>€</sup>@Html.DisplayFor(item => Price.TwoPersonsPrice)<sub>/ 2 persons</sub></p>
+                        <p class="price"><sup>€</sup>@Html.DisplayFor(item => Price.ThreePersonsPrice)<sub>/ 3 persons</sub></p>
+                        <sub>>3 persons, contact us for more details</sub>
+                        <ul class="features-list">
+                            <li>@Html.DisplayFor(item => Price.SendingWay)</li>
+                            <li>@Html.DisplayFor(item => Price.TicketType)</li>
+                            <li>@Html.DisplayFor(item => Price.Guiding)</li>
+                            <li>@Html.DisplayFor(item => Price.LeavingFrom)</li>
+                            <li>@Html.DisplayFor(item => Price.TripInfo)</li>
+                        </ul>
+                        <button class="btn-primary" href="#contact">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

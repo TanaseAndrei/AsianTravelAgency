@@ -53,7 +53,8 @@ namespace AsianTravelAgency.Controllers
 
         //functie care primeste datele dintr-un form si adauga un post
         [HttpPost]
-        public IActionResult AddPost([FromForm] AddPostViewModel PostToAdd)
+        [ValidateAntiForgeryToken]
+        public IActionResult AddPost([FromForm]AddPostViewModel PostToAdd)
         {
             if (ModelState.IsValid)
             {
@@ -62,12 +63,35 @@ namespace AsianTravelAgency.Controllers
                 {
                     Title = PostToAdd.Title,
                     Question = PostToAdd.Question,
-                    ImageName = PostToAdd.Question
+                    ImageName = uniqueFileName
                 };
                 _service.AddPost(NewPost);
                 return Redirect(Url.Action("Index", "Home"));
             }
             return BadRequest();
+        }
+
+        //functie care intoarce un view pentru stergerea unui anunt
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            DisplayPostViewModel PostToDelete = _service.GetPost(id);
+            return View(PostToDelete);
+        }
+
+        //functie care sterge elementul respectiv
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            _service.DeletePost(id);
+            return Redirect(Url.Action("Index", "Home"));
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         private string UploadedFile(AddPostViewModel PostToAdd)
@@ -86,13 +110,23 @@ namespace AsianTravelAgency.Controllers
             }
             return uniqueFileName;
         }
-        
-        //functie care intoarce un view pentru stergerea unui anunt
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        private string UploadedFile(EditPostViewModel PostToAdd)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            string uniqueFileName = null;
+
+            if (PostToAdd.ImageName != null)
+            {
+                string uploadsFolder = Path.Combine(_webEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + PostToAdd.ImageName.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    PostToAdd.ImageName.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
         }
+
     }
 }

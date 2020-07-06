@@ -7,7 +7,7 @@
     <div class="row banner">
         <div class="col-md-6">
             <h1>Have you wanted your entire life to visit the amazing world of Asia?</h1>
-            <P>Now you can! See our offers for unforgettable moments!</P>
+            <p>Now you can! See our offers for unforgettable moments!</p>
             <a href="pictures.html" class="express-btn">SEE PICTURES</a>
             <a href="#review" class="express-btn2">SEE REVIEWS</a>
         </div>
@@ -61,10 +61,13 @@
 </div>
 
 <!--LOCATIONS-->
-
-<a asp-action="AddPost">
-    <input type="button" value="+" class="btn btn-outline-secondary spacing filter"/>
-</a>
+<div class="container">
+    <div class="row">
+        <a asp-action="AddPost">
+            <input type="button" value="+" class="btn btn-outline-secondary spacing filter" />
+        </a>
+    </div>
+</div>
 
 @if (Model.Posts.Count() == 0)
 {
@@ -80,7 +83,7 @@ else
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="~/images/@DisplayPostViewModel.ImageName" />
+                        <img src="~/images/@DisplayPostViewModel.ImageName" asp-append-version="true"/>
                     </div>
                     <div class="col-md-6">
                         <h2>
@@ -92,7 +95,6 @@ else
                         <a asp-controller="Prices" asp-action="Index">See our offers!</a>
                     </div>
                     <a asp-action="Delete" asp-route-id="@DisplayPostViewModel.Id">Delete</a>
-                    <a asp-action="Edit" asp-route-id="@DisplayPostViewModel.Id">Edit</a>
                 </div>
             </div>
         </div>

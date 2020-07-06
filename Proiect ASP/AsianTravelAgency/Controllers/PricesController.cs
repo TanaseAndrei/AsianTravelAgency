@@ -7,147 +7,72 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AsianTravelAgency;
 using AsianTravelAgency.Models;
+using Microsoft.Extensions.Logging;
+using AsianTravelAgency.Services;
+using AsianTravelAgency.Models.ViewModels.PricesViewModel;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using AsianTravelAgency.Models.ViewModels.PostViewModel;
 
 namespace AsianTravelAgency.Controllers
 {
     public class PricesController : Controller
     {
-        private readonly AsianTravelAgencyContext _context;
+        private readonly ILogger<HomeController> _logger;
+        private readonly PricesService _service;
 
-        public PricesController(AsianTravelAgencyContext context)
+        public PricesController(ILogger<HomeController> _logger, PricesService _service)
         {
-            _context = context;
+            this._logger = _logger;
+            this._service = _service;
         }
 
-        // GET: Prices
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.PriceSet.ToListAsync());
+            var Prices = _service.GetAll();
+            List<DisplayPriceViewModel> ListOfPosts = Prices.ToList();
+            return View(new DisplayAllPriceViewModel() { Prices = ListOfPosts });
         }
 
-        // GET: Prices/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var prices = await _context.PriceSet
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (prices == null)
-            {
-                return NotFound();
-            }
-
-            return View(prices);
-        }
-
-        // GET: Prices/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Prices/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Destination,OnePersonPrice,TwoPersonsPrice,ThreePersonsPrice,SendingWay,TicketType,Guiding,LeavingFrom,TripInfo")] Prices prices)
+        public IActionResult AddPrice([FromForm] AddPriceViewModel ModelToAdd)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(prices);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(prices);
-        }
-
-        // GET: Prices/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var prices = await _context.PriceSet.FindAsync(id);
-            if (prices == null)
-            {
-                return NotFound();
-            }
-            return View(prices);
-        }
-
-        // POST: Prices/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Destination,OnePersonPrice,TwoPersonsPrice,ThreePersonsPrice,SendingWay,TicketType,Guiding,LeavingFrom,TripInfo")] Prices prices)
-        {
-            if (id != prices.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                Prices PriceToAdd = new Prices()
                 {
-                    _context.Update(prices);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PricesExists(prices.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                    Destination = ModelToAdd.Destination,
+                    OnePersonPrice = ModelToAdd.OnePersonPrice,
+                    TwoPersonsPrice = ModelToAdd.TwoPersonsPrice,
+                    ThreePersonsPrice = ModelToAdd.ThreePersonsPrice,
+                    SendingWay = ModelToAdd.SendingWay,
+                    TicketType = ModelToAdd.TicketType,
+                    Guiding = ModelToAdd.Guiding,
+                    LeavingFrom = ModelToAdd.LeavingFrom,
+                    TripInfo = ModelToAdd.TripInfo
+
+                };
+                _service.AddPrice(PriceToAdd);
+                return Redirect(Url.Action("Index", "PricesController"));
             }
-            return View(prices);
+            return BadRequest();
         }
 
-        // GET: Prices/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        //functie care intoarce un view pentru stergere
+        public IActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var prices = await _context.PriceSet
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (prices == null)
-            {
-                return NotFound();
-            }
-
-            return View(prices);
+            DisplayPriceViewModel PriceToDisplayForDelete = _service.GetPrice(id);
+            return View(PriceToDisplayForDelete);
         }
 
-        // POST: Prices/Delete/5
+        //functie care sterge elementul respectiv, dupa apasarea butonului de submit
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            var prices = await _context.PriceSet.FindAsync(id);
-            _context.PriceSet.Remove(prices);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            _service.DeletePrice(id);
+            return Redirect(Url.Action("Index", "Home"));
         }
 
-        private bool PricesExists(int id)
-        {
-            return _context.PriceSet.Any(e => e.Id == id);
-        }
     }
 }

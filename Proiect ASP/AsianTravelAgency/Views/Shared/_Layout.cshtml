@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/SharedHeaderFooter.css" />
     <link rel="stylesheet" href="~/css/index.css" />
+    <link rel="stylesheet" href="~/css/prices-style.css" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -24,22 +25,22 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mr-auto ml-auto text-right">
                         <li class="nav-item">
-                            <a class="nav-link active-home" href="index.html">HOME</a>
+                            <a class="nav-link active-home" asp-controller="Home" asp-action="Index">HOME</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="login.html">LOGIN</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pictures.html">PICTURES</a>
+                            <a class="nav-link" asp-controller="Pictures" asp-action="Index">PICTURES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="prices.html">PRICES</a>
+                            <a class="nav-link" asp-controller="Prices" asp-action="Index">PRICES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="aboutus.html">ABOUT US</a>
+                            <a class="nav-link" asp-controller="AboutUs" asp-action="Index">ABOUT US</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="mailto:stonixandrei@yahoo.com" target="_blank"
+                            <a id ="contact" class="nav-link" href="mailto:stonixandrei@yahoo.com" target="_blank"
                                rel="noopener noreferrer">CONTACT US</a>
                         </li>
                     </ul>
@@ -61,7 +62,7 @@
                     <h2>ASIAXPRESS</h2>
                     <ul>
                         <li><a href="#">Hosting</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a asp-controller="FAQ" asp-action="Index">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 segment-two">
@@ -92,6 +93,7 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="~/js/display_file_name.js"></script>
     @RenderSection("Styles", required: false)
 </body>
 </html>

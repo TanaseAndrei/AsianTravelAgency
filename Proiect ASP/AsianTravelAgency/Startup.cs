@@ -45,6 +45,10 @@ namespace AsianTravelAgency
 
             //add the services
             services.AddScoped<PostService>();
+            services.AddScoped<UserService>();
+            services.AddScoped<PricesService>();
+            services.AddScoped<PicturesService>();
+            services.AddScoped<FAQService>();
 
         }
 

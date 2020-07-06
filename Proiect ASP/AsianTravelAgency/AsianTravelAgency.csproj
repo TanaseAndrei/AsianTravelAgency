@@ -21,7 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
+    <Folder Include="Models\ViewModels\FAQViewModel\" />
+    <Folder Include="Models\ViewModels\AboutUsPostViewModel\" />
+    <Folder Include="Models\ViewModels\PicturesViewModel\" />
+    <Folder Include="Models\ViewModels\UserViewModel\" />
+    <Folder Include="wwwroot\images\DestinationPictures\" />
+    <Folder Include="wwwroot\images\PostPictures\" />
+    <Folder Include="wwwroot\images\TeamPictures\" />
   </ItemGroup>
 
 </Project>
