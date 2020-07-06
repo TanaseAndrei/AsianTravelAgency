@@ -37,6 +37,7 @@ namespace AsianTravelAgency.Services
             DisplayPriceViewModel ModelToReturn = new DisplayPriceViewModel()
             {
                 Id = OriginalPrice.Id,
+                Destination = OriginalPrice.Destination,
                 OnePersonPrice = OriginalPrice.OnePersonPrice,
                 TwoPersonsPrice = OriginalPrice.TwoPersonsPrice,
                 ThreePersonsPrice = OriginalPrice.ThreePersonsPrice,
@@ -58,6 +59,7 @@ namespace AsianTravelAgency.Services
                 DisplayPriceViewModel ModelToAddToList = new DisplayPriceViewModel()
                 {
                     Id = Price.Id,
+                    Destination = Price.Destination,
                     OnePersonPrice = Price.OnePersonPrice,
                     TwoPersonsPrice = Price.TwoPersonsPrice,
                     ThreePersonsPrice = Price.ThreePersonsPrice,

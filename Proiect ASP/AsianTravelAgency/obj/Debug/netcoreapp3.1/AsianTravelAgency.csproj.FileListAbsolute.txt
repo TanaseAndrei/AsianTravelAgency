@@ -161,10 +161,7 @@ E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\bin\Debug\n
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\AsianTravelAgency.csproj.CoreCompileInputs.cache
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\AsianTravelAgency.MvcApplicationPartsAssemblyInfo.cache
-E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\AboutUsPosts\Create.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\AboutUsPosts\Delete.cshtml.g.cs
-E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\AboutUsPosts\Details.cshtml.g.cs
-E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\AboutUsPosts\Edit.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\AboutUsPosts\Index.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\FAQs\Create.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\FAQs\Delete.cshtml.g.cs
@@ -176,12 +173,7 @@ E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\n
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Pictures\Details.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Pictures\Edit.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Pictures\Index.cshtml.g.cs
-E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Posts\Create.cshtml.g.cs
-E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Posts\Details.cshtml.g.cs
-E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Posts\Index.cshtml.g.cs
-E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Prices\Create.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Prices\Delete.cshtml.g.cs
-E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Prices\Details.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Prices\Edit.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Prices\Index.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Users\Create.cshtml.g.cs
@@ -191,3 +183,5 @@ E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\n
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Home\AddPost.cshtml.g.cs
 E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Home\Delete.cshtml.g.cs
+E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\Prices\AddPrice.cshtml.g.cs
+E:\Programming\PAW proiect\AsiaExpress\Proiect ASP\AsianTravelAgency\obj\Debug\netcoreapp3.1\Razor\Views\AboutUsPosts\AddPost.cshtml.g.cs

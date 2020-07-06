@@ -1,47 +1,63 @@
-﻿@model IEnumerable<AsianTravelAgency.Models.AboutUsPost>
+﻿@model AsianTravelAgency.Models.ViewModels.AboutUsPostViewModel.DisplayAllAboutUsPostViewModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container container-banner">
+    <div class="row banner">
+        <div class="col-md-6">
+            <h1>We are a small team that make your dream come true!</h1>
+            <p>
+                "When the things are going down, think that the universe is testing your patience. Wait and
+                everything will be
+                as you wish.<small class="anchor-text">John Lee, Founder of ASIAXPRESS</small>
+            </p>
+            <a href="pictures.html" class="express-btn">SEE PICTURES</a>
+            <a href="#review" class="express-btn2">SEE REVIEWS</a>
+        </div>
+        <div class="col-md-6 city-picture">
+            <img src="~/images/Freepik-smile.png" class="img-fluid">
+        </div>
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageTitle)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageTitle)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+<div class="container">
+    <div class="row">
+        <a asp-action="AddPost">
+            <input type="button" value="+" class="btn btn-outline-secondary spacing filter" />
+        </a>
+    </div>
+</div>
+
+@if (Model.AllAboutUsPosts.Count() == 0)
+{
+    <div colspan="10">
+        <p>No info</p>
+    </div>
 }
-    </tbody>
-</table>
+else
+{
+    @foreach (var AboutUsPost in Model.AllAboutUsPosts)
+    {
+        <div class="japan">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="~/images/@AboutUsPost.ImageName" asp-append-version="true" />
+                    </div>
+                    <div class="col-md-6">
+                        <h2>
+                            @Html.DisplayFor(item => AboutUsPost.Title)
+                        </h2>
+                        <p>
+                            @Html.DisplayFor(item => AboutUsPost.Content)
+                        </p>
+                        <a asp-controller="Prices" asp-action="Index">See our offers!</a>
+                    </div>
+                    <a asp-action="Delete" asp-route-id="@AboutUsPost.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+}

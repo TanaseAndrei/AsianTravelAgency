@@ -33,6 +33,12 @@ namespace AsianTravelAgency.Controllers
             return View(new DisplayAllPriceViewModel() { Prices = ListOfPosts });
         }
 
+        //functie care intoarce un view pentru adaugare
+        public IActionResult AddPrice()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AddPrice([FromForm] AddPriceViewModel ModelToAdd)
@@ -53,7 +59,7 @@ namespace AsianTravelAgency.Controllers
 
                 };
                 _service.AddPrice(PriceToAdd);
-                return Redirect(Url.Action("Index", "PricesController"));
+                return Redirect(Url.Action("Index", "Prices"));
             }
             return BadRequest();
         }
@@ -71,7 +77,38 @@ namespace AsianTravelAgency.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             _service.DeletePrice(id);
-            return Redirect(Url.Action("Index", "Home"));
+            return Redirect(Url.Action("Index", "Prices"));
+        }
+
+        public IActionResult Edit(int id)
+        {
+            DisplayPriceViewModel ModelToEdit = _service.GetPrice(id);
+            return View(ModelToEdit);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit([FromForm] EditPriceViewModel PriceToEdit)
+        {
+            if (ModelState.IsValid)
+            {
+                Prices PriceToUpdate = new Prices()
+                {
+                    Id = PriceToEdit.Id,
+                    Destination = PriceToEdit.Destination,
+                    OnePersonPrice = PriceToEdit.OnePersonPrice,
+                    TwoPersonsPrice = PriceToEdit.TwoPersonsPrice,
+                    ThreePersonsPrice = PriceToEdit.ThreePersonsPrice,
+                    SendingWay = PriceToEdit.SendingWay,
+                    TicketType = PriceToEdit.TicketType,
+                    Guiding = PriceToEdit.Guiding,
+                    LeavingFrom = PriceToEdit.LeavingFrom,
+                    TripInfo = PriceToEdit.TripInfo
+                };
+                _service.Edit(PriceToUpdate);
+                return Redirect(Url.Action("Index","Prices"));
+            }
+            return BadRequest();
         }
 
     }

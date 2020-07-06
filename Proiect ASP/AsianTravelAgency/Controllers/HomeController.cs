@@ -111,22 +111,5 @@ namespace AsianTravelAgency.Controllers
             return uniqueFileName;
         }
 
-        private string UploadedFile(EditPostViewModel PostToAdd)
-        {
-            string uniqueFileName = null;
-
-            if (PostToAdd.ImageName != null)
-            {
-                string uploadsFolder = Path.Combine(_webEnvironment.WebRootPath, "images");
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + PostToAdd.ImageName.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    PostToAdd.ImageName.CopyTo(fileStream);
-                }
-            }
-            return uniqueFileName;
-        }
-
     }
 }

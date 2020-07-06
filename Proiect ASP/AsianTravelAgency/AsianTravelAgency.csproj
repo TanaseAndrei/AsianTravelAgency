@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Models\ViewModels\FAQViewModel\" />
-    <Folder Include="Models\ViewModels\AboutUsPostViewModel\" />
     <Folder Include="Models\ViewModels\PicturesViewModel\" />
     <Folder Include="Models\ViewModels\UserViewModel\" />
     <Folder Include="wwwroot\images\DestinationPictures\" />

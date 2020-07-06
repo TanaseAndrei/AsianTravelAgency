@@ -49,6 +49,7 @@ namespace AsianTravelAgency
             services.AddScoped<PricesService>();
             services.AddScoped<PicturesService>();
             services.AddScoped<FAQService>();
+            services.AddScoped<AboutUsPostService>();
 
         }
 

@@ -7,7 +7,7 @@
 <div class="container container-banner">
     <div class="row banner">
         <div class="col-md-6">
-            <h2>No money, no problem!</h2>
+            <h1>No money, no problem!</h1>
             <p>
                 We will find the right place for your for the right money. You will accomplish your dream and
                 for sure you will want more!
@@ -25,10 +25,13 @@
 </div>
 
 <!--Prices-->
-
-<a asp-action="AddPrice">
-    <input type="button" value="+" class="btn btn-outline-secondary spacing filter" />
-</a>
+<div class="container">
+    <div class="row">
+        <a asp-action="AddPrice">
+            <input type="button" value="+" class="btn btn-outline-secondary spacing filter" />
+        </a>
+    </div>
+</div>
 
 @if(Model.Prices.Count() == 0)
 {
@@ -59,6 +62,8 @@ else
                             <li>@Html.DisplayFor(item => Price.TripInfo)</li>
                         </ul>
                         <button class="btn-primary" href="#contact">Buy</button>
+                        <a asp-route-id="@Price.Id" asp-action="Edit">Edit</a>
+                        <a asp-route-id="@Price.Id" asp-action="Delete">Delete</a>
                     </div>
                 </div>
             </div>
