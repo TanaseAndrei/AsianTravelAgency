@@ -38,7 +38,7 @@ namespace AsianTravelAgency.Controllers
                 var Posts = _service.GetAll();
                 return View(new DisplayAllAboutUsPostViewModel() { AllAboutUsPosts = Posts.AsEnumerable() });
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return BadRequest();
             }

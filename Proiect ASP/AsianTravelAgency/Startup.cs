@@ -8,6 +8,7 @@ using AsianTravelAgency.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -50,6 +51,9 @@ namespace AsianTravelAgency
             services.AddScoped<PicturesService>();
             services.AddScoped<FAQService>();
             services.AddScoped<AboutUsPostService>();
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AsianTravelAgencyContext>();
 
         }
 

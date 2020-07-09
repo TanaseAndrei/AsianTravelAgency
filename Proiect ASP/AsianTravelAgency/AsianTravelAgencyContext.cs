@@ -1,4 +1,6 @@
 ﻿using AsianTravelAgency.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AsianTravelAgency
 {
-    public class AsianTravelAgencyContext : DbContext
+    public class AsianTravelAgencyContext : IdentityDbContext<IdentityUser>
     {
         public AsianTravelAgencyContext(DbContextOptions<AsianTravelAgencyContext> options)
             : base(options)

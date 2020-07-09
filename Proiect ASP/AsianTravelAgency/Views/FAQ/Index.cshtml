@@ -1,0 +1,62 @@
+﻿@model AsianTravelAgency.Models.ViewModels.FAQViewModel.DisplayAllFAQViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container container-banner">
+    <div class="row banner">
+        <div class="col-md-6">
+            <h1>Got questions? No problem!</h1>
+            <p>
+                Here are some of the frequently asked questions. If you do not feel that one of these
+                questions responds to one of your, feel free to contact us!
+            </p>
+            <a href="pictures.html" class="express-btn">SEE PICTURES</a>
+            <a href="#review" class="express-btn2">SEE REVIEWS</a>
+        </div>
+        <div class="col-md-6 city-picture">
+            <img src="~/images/Freepik-question.png" class="img-fluid floating-image">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <a asp-action="AddFAQ">
+            <input type="button" value="+" class="btn btn-outline-secondary spacing filter" />
+        </a>
+    </div>
+</div>
+
+@if (Model.FAQs.Count() == 0)
+{
+    <div class="container">
+        <div class="row">
+            No questions
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="container container-style">
+        <div class="wrapper">
+            @for(int iterator = 0; iterator < Model.FAQs.Count(); iterator++)
+            {
+            <div class="wrapper-item" id="question@(iterator)">
+                <a class="wrapper-link" href="#question@(iterator)">
+                    <h3>@Html.DisplayFor(item => Model.FAQs.ElementAt(iterator).Question)</h3>
+                    <ion-icon class="ion-md-add" name="add-outline"></ion-icon>
+                    <ion-icon class="ion-md-remove" name="remove-outline"></ion-icon>
+                </a>
+                <div class="answer">
+                    <p>@Html.DisplayFor(item => Model.FAQs.ElementAt(iterator).Answer)</p>
+                </div>
+                <a asp-action="Edit" asp-route-id="@Model.FAQs.ElementAt(iterator).Id">Edit</a>
+                <a asp-action="Delete" asp-route-id="@Model.FAQs.ElementAt(iterator).Id">Delete</a>
+            </div>
+            }
+        </div>
+    </div>
+}

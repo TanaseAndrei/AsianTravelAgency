@@ -1,41 +1,49 @@
-﻿@model IEnumerable<AsianTravelAgency.Models.Pictures>
+﻿@model AsianTravelAgency.Models.ViewModels.PicturesViewModel.DisplayAllPictureViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Pictures";
 }
 
-<h1>Index</h1>
+<div class="container">
+    <div class="row">
+         <a asp-action="AddPicture">
+            <input type="button" value="+" class="btn btn-outline-secondary spacing filter" />
+        </a> 
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PictureName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Country)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PictureName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@if(Model.Pictures.Count() == 0)
+{
+    <div class="container">
+        <div class="row">
+            <span>No pictures</span>
+        </div>
+    </div>
 }
-    </tbody>
-</table>
+else
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center mb-5 customized-buttons">
+                <button type="button" class="btn btn-outline-secondary spacing filter" data-rel="all">All</button>
+                @foreach (string Country in Model.Countries)
+                {
+                    <button type="button" class="btn btn-outline-secondary spacing filter" data-rel="@Country">@Country</button>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="gallery" id="gallery">
+                @foreach (var Picture in Model.Pictures)
+                {
+                    <div class="mb-3 pics animation all @Picture.Country">
+                        <img class="img-fluid" src="~/images/@Picture.PictureName">
+                    </div>
+                    <a asp-action="Delete" asp-route-id="@Picture.Id">Delete</a>
+                }
+            </div>
+        </div>
+    </div>
+}

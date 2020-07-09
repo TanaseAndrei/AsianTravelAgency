@@ -1,108 +1,4 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 15px;
-}
-
-body{
-    background:	rgb(240,240,240);
-}
-
-/*HEADER*/
-.header{
-    background: rgb(255, 105, 180, 0.6);
-    padding-bottom: 150px;
-}
-
-.navbar{
-    padding-top: 20px !important;
-}
-
-.nav-item{
-    margin-left: 40px;
-    margin-bottom: 10px;
-}
-
-.nav-link{
-    color: #fff !important;
-    font-size: 20px !important;
-    padding: 0 0 5px 0 !important;
-    display: unset !important;
-}
-
-.navbar-brand img{
-    width: 100px;
-}
-
-.fa-bars{
-    color: #fff;
-    font-size: 40px !important;
-}
-
-.navbar-toggler{
-    border: 0 !important;
-    outline: 0 !important;
-    padding: initial !important;
-}
-
-.active-home{
-    border-bottom: 2px solid white;
-}
-
-.nav-link:hover{
-    border-bottom: 2px solid #fff;
-    transition: 0.3s;
-}
-
-.banner{
-    margin-top: 8%;
-    color: #fff;
-}
-
-.banner h2{
-    font-size: 40px;
-    font-weight: 250;
-    text-align: center;
-    margin: 10px 0;
-}
-
-.banner img{
-    max-width: 75%;
-    max-height: auto;
-}
-
-.floating-image {
-    margin: 45px 0;
-    padding: 35px 35px;
-    animation: mover 3s infinite alternate;
-}
-
-.anchor-text{
-    display: block;
-    font-weight: 1000;
-    padding-left: 50%;
-}
-
-.intro-speech{
-    font-size: 20px;
-    text-align: center;
-}
-
-@keyframes mover{
-    0%{
-        transform: translateY(0);
-    }
-    100%{
-        transform: translateY(-20px);
-    }
-}
-
-/*FAQ*/
-/*This class is used to center the content*/
-.container-style{
+.container-style {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -110,14 +6,14 @@ body{
     justify-content: center;
 }
 
-.container{
+.container {
     width: 100%;
     max-width: 80rem;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
-.wrapper-item{
+.wrapper-item {
     background-color: rgba(255, 105, 180, 0.6);
     border-radius: 0.4rem;
     margin-top: 0.5rem;
@@ -126,52 +22,52 @@ body{
     box-shadow: 0.5rem 2px 0.5rem rgba(0,0,0,0.1);
 }
 
-.wrapper-link{
+.wrapper-link {
     font-size: 1.6rem;
     color: #fff;
     text-decoration: none;
-    width: 100%; 
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 0;
 }
 
-.wrapper-link i{
-  color: #e7d5ff;
-  padding: 0.5rem;
-}
+    .wrapper-link i {
+        color: #e7d5ff;
+        padding: 0.5rem;
+    }
 
-.wrapper-link .ion-md-remove{
-    display: none;
-}
+    .wrapper-link .ion-md-remove {
+        display: none;
+    }
 
-.answer{
+.answer {
     max-height: 0;
     overflow: hidden;
     position: relative;
-    background: rgb(255, 105, 180, 0.4);
+    background: rgba(255, 105, 180, 0.4);
     color: rgba(255,255,255,0.6);
     transition: max-height 650ms;
 }
 
-.answer::before{
-    content: "";
-    position: absolute;
-    width: 0.6rem;
-    height: 100%;
-    background-color: #dfe;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-}
+    .answer::before {
+        content: "";
+        position: absolute;
+        width: 0.6rem;
+        height: 100%;
+        background-color: #dfe;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
 
-.answer p{
-    padding: 2rem;
-    color: #fff;
-}
+    .answer p {
+        padding: 2rem;
+        color: #fff;
+    }
 
-.wrapper-item:target .answer{
+.wrapper-item:target .answer {
     max-height: 20rem;
 }
 
@@ -179,127 +75,25 @@ body{
     font-size: 18px;
 }
 
-.wrapper-item:target{
+.wrapper-item:target {
     animation: mover1 4s infinite alternate;
     margin: 40px 0;
 }
 
-@keyframes mover1{
-    0%{
+@keyframes mover1 {
+    0% {
         transform: translateY(0px);
-    } 100%{
+    }
+
+    100% {
         transform: translateY(-20px);
     }
 }
 
-.wrapper-item:target .wrapper-link .ion-md-add{
+.wrapper-item:target .wrapper-link .ion-md-add {
     display: none;
 }
 
-.wrapper-item:target .wrapper-link .ion-md-remove{
+.wrapper-item:target .wrapper-link .ion-md-remove {
     display: block;
 }
-
-/*FOOTER*/
-footer{
-    background: rgb(255, 105, 180, 0.6);
-    padding-top: 5px;
-}
-
-.container{
-    padding: 40px 0;
-}
-
-footer p{
-    color: #fff;
-    line-height: 18px;
-}
-
-footer h2{
-    color: #fff;
-    font-size: 18px;
-}
-
-.segment-one{
-    color: #fff;
-    letter-spacing: 3px;
-    margin: 10px 0;
-}
-
-.segment-one h2{
-    font-size: 25px;
-}
-
-.segment-one ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.segment-two h2{
-    font-size: 25px;
-}
-
-.segment-one ul li{
-    border-bottom: 1px solid white;
-    line-height: 40px;
-}
-
-.segment-one ul li a{
-    color: #fff;
-    text-decoration: none;
-}
-
-.segment-two h2:before{
-    content: '|';
-    color: red;
-    padding-right: 4px;
-}
-
-.segment-two a i{
-    font-size: 20px;
-    justify-content: space-evenly;
-}
-
-.segment-three h2{
-    font-size: 25px;
-}
-
-.segment-three h2:before{
-    content: '|';
-    color: red;
-    padding-right: 4px;
-}
-
-.segment-three form input[type=submit]{
-    border: none;
-    padding: 3px 15px;
-    background: white;
-}
-
-.footer-bottom-text{
-    color: black;
-    background: white;
-    text-align: center;
-    line-height: 75px;
-}
-
-/*Responsive CSS*/
-@media only screen and (max-width: 700px){
-    .container{
-        margin: 100px 0;
-    }
-}
-
-@media only screen and (max-width: 350px){
-    .segment-one{
-        margin: 20px 0;
-    }
-    .segment-two{
-        margin: 20px 0;
-    }
-    .segment-three{
-        margin: 20px 0;
-    }
-}
-
